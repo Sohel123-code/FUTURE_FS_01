@@ -108,6 +108,15 @@
       transform: translateY(0);
     }
 
+    /* Certificate card fade-in — used instead of .reveal for dynamically-shown cards */
+    @keyframes certCardFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cert-card {
+      animation: certCardFadeIn 0.5s ease forwards;
+    }
+
     .nav-link::after {
       content: '';
       display: block;

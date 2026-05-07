@@ -1,5 +1,8 @@
-import React from 'react';
-import aboutImg from '../assets/sohel.jpg';
+import React, { useState, useEffect } from 'react';
+import photo1 from '../assets/photo.jpeg';
+import photo2 from '../assets/photo2.jpeg';
+import profile2 from '../assets/profile2.jpeg';
+import profile3 from '../assets/profile3.jpeg';
 
 const sections = [
   {
@@ -50,9 +53,88 @@ const achievements = [
   'Participated in multiple hackathons and technical events',
 ];
 
+// Gallery photos with captions
+const galleryPhotos = [
+  {
+    src: profile2,
+    caption: 'Speaking at IDE Bootcamp Inauguration',
+  },
+  {
+    src: profile3,
+    caption: 'Presenting at Innovation & Entrepreneurship Event',
+  },
+  {
+    src: photo1,
+    caption: 'Collaborating with Teammates at Hackathon',
+  },
+  {
+    src: photo2,
+    caption: 'IDE Bootcamp — Inauguration Ceremony',
+  },
+];
+
+function AutoSlideshow() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Auto-advance every 3.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % galleryPhotos.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="w-full space-y-3">
+      {/* Main slideshow image — full width */}
+      <div
+        className="relative w-full overflow-hidden rounded-2xl shadow-xl border border-primary/15"
+        style={{ aspectRatio: '16/10' }}
+      >
+        {galleryPhotos.map((photo, i) => (
+          <img
+            key={i}
+            src={photo.src}
+            alt={photo.caption}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out"
+            style={{ opacity: i === activeIndex ? 1 : 0 }}
+            loading="lazy"
+          />
+        ))}
+
+        {/* Caption overlay */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 md:p-4 pt-8 md:pt-10">
+          <p className="text-white text-xs md:text-sm font-semibold drop-shadow-lg">
+            {galleryPhotos[activeIndex].caption}
+          </p>
+        </div>
+      </div>
+
+      {/* Dot indicators — full width bar */}
+      <div className="flex items-center justify-center gap-2 w-full py-2">
+        {galleryPhotos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveIndex(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className="transition-all duration-300 rounded-full"
+            style={{
+              width:  i === activeIndex ? 28 : 10,
+              height: 10,
+              background: i === activeIndex
+                ? 'hsl(188, 84%, 48%)'
+                : 'hsl(188, 84%, 48%, 0.25)',
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function About() {
   return (
-    <section className="py-16 lg:py-20 space-y-10">
+    <section className="py-12 md:py-16 lg:py-20 space-y-8 md:space-y-10">
       <div className="text-center mb-4 reveal">
         <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
         <p className="text-base md:text-lg text-foreground/70 mt-2">
@@ -61,19 +143,14 @@ function About() {
         <div className="mt-4 w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
       </div>
 
-      <div className="grid lg:grid-cols-[2.2fr,2.3fr] gap-10 lg:gap-14 items-start">
-        {/* Left: Image + About text */}
+      <div className="grid grid-cols-1 lg:grid-cols-[2.2fr,2.3fr] gap-8 md:gap-10 lg:gap-14 items-start">
+        {/* Left: Photo slideshow + About text */}
         <div className="space-y-6 reveal">
-          <div className="rounded-3xl overflow-hidden shadow-2xl border border-secondary/40">
-            <img
-              src={aboutImg}
-              alt="Sohel"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {/* Auto slideshow replaces the old static image */}
+          <AutoSlideshow />
 
           {sections.map(section => (
-            <div key={section.title} className="bg-card rounded-3xl p-5 md:p-6 shadow-lg border border-primary/10">
+            <div key={section.title} className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-2xl">{section.icon}</span>
                 <h3 className="text-lg font-semibold">{section.title}</h3>
@@ -92,7 +169,7 @@ function About() {
         {/* Right: Education, skills, problem solving, projects, achievements */}
         <div className="space-y-6 reveal" style={{ transitionDelay: '150ms' }}>
           {/* Educational Journey */}
-          <div className="bg-card rounded-3xl p-5 md:p-6 shadow-lg border border-primary/10">
+          <div className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10">
             <h3 className="text-lg font-semibold flex items-center gap-2 mb-3">
               <span>🎓</span> Educational Journey
             </h3>
@@ -110,7 +187,7 @@ function About() {
           </div>
 
           {/* Technical skills & problem solving */}
-          <div className="bg-card rounded-3xl p-5 md:p-6 shadow-lg border border-secondary/10 space-y-4">
+          <div className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-secondary/10 space-y-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <span>💻</span> Technical Skills
             </h3>
@@ -141,7 +218,7 @@ function About() {
           </div>
 
           {/* Projects & achievements */}
-          <div className="bg-card rounded-3xl p-5 md:p-6 shadow-lg border border-primary/10 space-y-4">
+          <div className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10 space-y-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <span>🚀</span> Projects &amp; Achievements
             </h3>
@@ -175,5 +252,3 @@ function About() {
 }
 
 export default About;
-
-
