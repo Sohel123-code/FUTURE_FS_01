@@ -8,6 +8,7 @@ import careerGenesisImg from '../assets/robo.webp';
 import counterImg from '../assets/counter.jpeg';
 import guessImg from '../assets/guess the number.jpeg';
 import otpImg from '../assets/otp generator.webp';
+import smsPredictorImg from '../assets/sms_predictor.png';
 
 function Projects() {
   const basicProjects = [
@@ -52,6 +53,12 @@ function Projects() {
       desc: "Converts Temperature from Celsius to Fahrenheit and vice versa.",
       img: guessImg,
       link: "https://steady-kataifi-8ee5bf.netlify.app/",
+    },
+    {
+      title: "SMS PREDICTOR",
+      desc: "A machine learning application that predicts whether an SMS is spam or not.",
+      img: smsPredictorImg,
+      link: "https://sms-predictor.vercel.app/",
     }
   ];
 
