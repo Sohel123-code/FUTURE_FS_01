@@ -7,7 +7,7 @@ function Home() {
     <section className="min-h-[calc(100vh-8rem)] flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-[3fr,2fr] gap-10 lg:gap-16 items-center w-full">
         {/* Left: text & actions */}
-        <div className="space-y-6 reveal">
+        <div className="space-y-6 reveal pl-4 lg:pl-12">
           <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-[0.18em]">
             CSE Student &amp; Web Developer
           </p>
