@@ -1,26 +1,26 @@
 import React, { useState, useRef } from 'react';
 
 // ── NEW certificates (added recently) ────────────────────────────────────────
-import devFestHackathon   from '../assets/certificates/DEV_FEST Hacathaon.jpeg';
-import iaOnlineTraining   from '../assets/certificates/IA Online Training Certificate (1).pdf';
-import iaParticipation    from '../assets/certificates/IA Participation Certificate (3).pdf';
-import ideBootCamp        from '../assets/certificates/IDE BOOT CAMP certificate.jpeg';
-import reSkilling         from '../assets/certificates/Re skiiling certificate.pdf';
+import devFestHackathon from '../assets/certificates/DEV_FEST Hacathaon.jpeg';
+import iaOnlineTraining from '../assets/certificates/IA Online Training Certificate (1).pdf';
+import iaParticipation from '../assets/certificates/IA Participation Certificate (3).pdf';
+import ideBootCamp from '../assets/certificates/IDE BOOT CAMP certificate.jpeg';
+import reSkilling from '../assets/certificates/Re skiiling certificate.pdf';
 import wadhwaniFoundation from '../assets/certificates/Wadhwani foundation .pdf';
-import promptWarWinner    from '../assets/certificates/Prompt war winner.pdf';
-import mdKhajaEshaq      from '../assets/certificates/MD.KHAJA ESHAQ.pdf';
+import promptWarWinner from '../assets/certificates/Prompt war winner.pdf';
+import mdKhajaEshaq from '../assets/certificates/MD.KHAJA ESHAQ.pdf';
 
 // ── Older certificates ────────────────────────────────────────────────────────
-import innoyudhCert          from '../assets/Innoyudh .pdf';
-import gdgDevFestCert        from '../assets/gdg dev fest.pdf';
-import pistonCupCert         from '../assets/piston cup hacakthon .pdf';
-import microsoft1Cert        from '../assets/MICROSOFT-1.PDF';
-import microsoft2Cert        from '../assets/MICROSOFT-2.PDF';
-import microsoft3Cert        from '../assets/MICROSOFT-3.PDF';
-import ssdlcCert             from '../assets/ssdlc .pdf';
-import codeChefAchievement   from '../assets/code chef achievement.pdf';
+import innoyudhCert from '../assets/Innoyudh .pdf';
+import gdgDevFestCert from '../assets/gdg dev fest.pdf';
+import pistonCupCert from '../assets/piston cup hacakthon .pdf';
+import microsoft1Cert from '../assets/MICROSOFT-1.PDF';
+import microsoft2Cert from '../assets/MICROSOFT-2.PDF';
+import microsoft3Cert from '../assets/MICROSOFT-3.PDF';
+import ssdlcCert from '../assets/ssdlc .pdf';
+import codeChefAchievement from '../assets/code chef achievement.pdf';
 import hackerRankAchievement from '../assets/hacker rank achievement .pdf';
-import leetcodeAchievement   from '../assets/leetcode achievement .pdf';
+import leetcodeAchievement from '../assets/leetcode achievement .pdf';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Certificate data  (newest first)
@@ -95,8 +95,8 @@ const certificates = [
   },
   {
     id: 18,
-    title: 'MD. Khaja Eshaq Certificate',
-    issuer: 'Certification Authority',
+    title: 'Pitch Night Edition 2026 Certificate',
+    issuer: 'Google Developer Groups',
     date: '2026',
     filePath: mdKhajaEshaq,
     fileType: 'pdf',
@@ -231,9 +231,9 @@ const certificates = [
 
 // Category labels
 const categoryLabels = {
-  hackathons:   'Hackathon',
-  events:       'Event',
-  courses:      'Course',
+  hackathons: 'Hackathon',
+  events: 'Event',
+  courses: 'Course',
   achievements: 'Achievement',
 };
 
@@ -337,8 +337,8 @@ function Certificates() {
   const sectionRef = useRef(null);
 
   const visibleCerts = showAll ? certificates : certificates.slice(0, INITIAL_VISIBLE);
-  const totalCount   = certificates.length;
-  const hiddenCount  = totalCount - INITIAL_VISIBLE;
+  const totalCount = certificates.length;
+  const hiddenCount = totalCount - INITIAL_VISIBLE;
 
   return (
     <section ref={sectionRef} className="py-24">
