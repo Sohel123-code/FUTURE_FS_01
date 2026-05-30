@@ -8,6 +8,7 @@ import ideBootCamp        from '../assets/certificates/IDE BOOT CAMP certificate
 import reSkilling         from '../assets/certificates/Re skiiling certificate.pdf';
 import wadhwaniFoundation from '../assets/certificates/Wadhwani foundation .pdf';
 import promptWarWinner    from '../assets/certificates/Prompt war winner.pdf';
+import mdKhajaEshaq      from '../assets/certificates/MD.KHAJA ESHAQ.pdf';
 
 // ── Older certificates ────────────────────────────────────────────────────────
 import innoyudhCert          from '../assets/Innoyudh .pdf';
@@ -89,6 +90,17 @@ const certificates = [
     filePath: reSkilling,
     fileType: 'pdf',
     description: 'Certificate of completion for re-skilling program.',
+    category: 'courses',
+    isNew: true,
+  },
+  {
+    id: 18,
+    title: 'MD. Khaja Eshaq Certificate',
+    issuer: 'Certification Authority',
+    date: '2026',
+    filePath: mdKhajaEshaq,
+    fileType: 'pdf',
+    description: 'Certificate awarded to MD. Khaja Eshaq.',
     category: 'courses',
     isNew: true,
   },
