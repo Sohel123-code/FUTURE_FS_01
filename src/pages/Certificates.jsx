@@ -9,6 +9,8 @@ import reSkilling from '../assets/certificates/Re skiiling certificate.pdf';
 import wadhwaniFoundation from '../assets/certificates/Wadhwani foundation .pdf';
 import promptWarWinner from '../assets/certificates/Prompt war winner.pdf';
 import mdKhajaEshaq from '../assets/certificates/MD.KHAJA ESHAQ.pdf';
+import mdKhajaEshaqInternship from '../assets/certificates/MD KHAJA ESHAQ Internship Certificate.pdf';
+import mdKhajaEshaqLoR from '../assets/certificates/MD KHAJA ESHAQ LoR.pdf';
 
 // ── Older certificates ────────────────────────────────────────────────────────
 import innoyudhCert from '../assets/Innoyudh .pdf';
@@ -27,6 +29,28 @@ import leetcodeAchievement from '../assets/leetcode achievement .pdf';
 // ─────────────────────────────────────────────────────────────────────────────
 const certificates = [
   // ── NEW ──
+  {
+    id: 20,
+    title: 'Full Stack Web Development Internship',
+    issuer: 'Future Interns',
+    date: 'April 2026',
+    filePath: mdKhajaEshaqInternship,
+    fileType: 'pdf',
+    description: 'Completed a 1-month internship program in Full Stack Web Development.',
+    category: 'courses',
+    isNew: true,
+  },
+  {
+    id: 19,
+    title: 'Letter of Recommendation',
+    issuer: 'Future Interns',
+    date: 'April 2026',
+    filePath: mdKhajaEshaqLoR,
+    fileType: 'pdf',
+    description: 'Recommendation letter for outstanding performance as a Full Stack Web Development Intern.',
+    category: 'achievements',
+    isNew: true,
+  },
   {
     id: 12,
     title: 'DEV FEST Hackathon',
