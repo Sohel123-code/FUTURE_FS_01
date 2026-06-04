@@ -9,6 +9,7 @@ import counterImg from '../assets/counter.jpeg';
 import guessImg from '../assets/guess the number.jpeg';
 import otpImg from '../assets/otp generator.webp';
 import smsPredictorImg from '../assets/sms_predictor.png';
+import cleanSlateImg from '../assets/cleanslate.png';
 
 function Projects() {
   const basicProjects = [
@@ -63,6 +64,12 @@ function Projects() {
   ];
 
   const hackathonProjects = [
+    {
+      title: "CLEANSLATE",
+      desc: "CleanSlate is a web-based data profiling, cleaning, and preprocessing platform that transforms raw datasets into high-quality, analysis-ready data through automated validation, visualization, and export tools.",
+      img: cleanSlateImg,
+      link: "https://thiranex-ass4.vercel.app/"
+    },
     {
       title: "COSMO EXPLORER",
       desc: "An interactive space exploration website showcasing planets, stars, and galaxies with stunning visuals.",
