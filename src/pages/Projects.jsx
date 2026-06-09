@@ -10,6 +10,7 @@ import guessImg from '../assets/guess the number.jpeg';
 import otpImg from '../assets/otp generator.webp';
 import smsPredictorImg from '../assets/sms_predictor.png';
 import cleanSlateImg from '../assets/cleanslate.png';
+import ecosphereImg from '../assets/ecosphere.jpg';
 
 function Projects() {
   const basicProjects = [
@@ -64,6 +65,12 @@ function Projects() {
   ];
 
   const hackathonProjects = [
+    {
+      title: "ECOSPHERE",
+      desc: "EcoSphere is a full-stack weather prediction platform featuring real-time climate data visualization, AI-powered forecasting, and interactive wind & temperature maps for accurate weather insights.",
+      img: ecosphereImg,
+      link: "https://eco-sphere-cyan.vercel.app/"
+    },
     {
       title: "CLEANSLATE",
       desc: "CleanSlate is a web-based data profiling, cleaning, and preprocessing platform that transforms raw datasets into high-quality, analysis-ready data through automated validation, visualization, and export tools.",
