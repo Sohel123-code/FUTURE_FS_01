@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import profileImg from '../assets/s1.jpeg';
+import mainResume from '../assets/certificates/Main_resume.pdf';
 
 function Home() {
   return (
@@ -37,6 +38,20 @@ function Home() {
             >
               More About Me
             </Link>
+            <a
+              href={mainResume}
+              download="Md_Khaja_Eshaq_Resume.pdf"
+              className="px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2"
+              style={{
+                background: 'linear-gradient(135deg, hsl(188, 84%, 48%), hsl(35, 92%, 55%))',
+                color: '#fff',
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v3a2 2 0 002 2h14a2 2 0 002-2v-3" />
+              </svg>
+              Download Resume
+            </a>
           </div>
 
           {/* Quick highlights */}
