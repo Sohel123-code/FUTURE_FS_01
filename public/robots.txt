@@ -1,0 +1,7 @@
+# robots.txt for https://eshaq.me
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://eshaq.me/sitemap.xml
