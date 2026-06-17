@@ -6,6 +6,7 @@ import Projects from './pages/Projects.jsx';
 import Certificates from './pages/Certificates.jsx';
 import Connect from './pages/Connect.jsx';
 import Contact from './pages/Contact.jsx';
+import SEOHead from './components/SEOHead.jsx';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-500">
+      <SEOHead />
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm transition-shadow duration-300">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <Link to="/" className="text-xl font-bold tracking-tight">

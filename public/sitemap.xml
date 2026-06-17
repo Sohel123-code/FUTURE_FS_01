@@ -3,7 +3,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://eshaq.me/</loc>
+    <loc>https://www.eshaq.me/</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- About -->
   <url>
-    <loc>https://eshaq.me/about</loc>
+    <loc>https://www.eshaq.me/about</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -19,7 +19,7 @@
 
   <!-- Projects -->
   <url>
-    <loc>https://eshaq.me/projects</loc>
+    <loc>https://www.eshaq.me/projects</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -27,7 +27,7 @@
 
   <!-- Certificates -->
   <url>
-    <loc>https://eshaq.me/certificates</loc>
+    <loc>https://www.eshaq.me/certificates</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -35,7 +35,7 @@
 
   <!-- Connect -->
   <url>
-    <loc>https://eshaq.me/connect</loc>
+    <loc>https://www.eshaq.me/connect</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -43,7 +43,7 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://eshaq.me/contact</loc>
+    <loc>https://www.eshaq.me/contact</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

@@ -4,6 +4,19 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "eshaq.me"
+        }
+      ],
+      "destination": "https://www.eshaq.me/:path",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
