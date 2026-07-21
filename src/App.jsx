@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
@@ -19,7 +19,7 @@ const navLinks = [
 
 function useScrollReveal() {
   useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -41,6 +41,8 @@ function App() {
   const location = useLocation();
   const [dark, setDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [pageKey, setPageKey] = useState(location.pathname);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
@@ -48,15 +50,27 @@ function App() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setPageKey(location.pathname);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useScrollReveal();
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-500">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-500 relative">
+      {/* Floating background orbs */}
+      <div className="orb orb-1" />
+      <div className="orb orb-2" />
+      <div className="orb orb-3" />
+
       <SEOHead />
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm transition-shadow duration-300">
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm transition-all duration-300 ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <Link to="/" className="text-xl font-bold tracking-tight">
             <span className="text-primary">Mohamed</span>
@@ -149,8 +163,8 @@ function App() {
         </div>
       </header>
 
-      <main className="container mx-auto px-6 pt-24 pb-16">
-        <div className="reveal active transition-opacity duration-500">
+      <main className="container mx-auto px-6 pt-24 pb-16 relative z-10">
+        <div key={pageKey} className="page-enter">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

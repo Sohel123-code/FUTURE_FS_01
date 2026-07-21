@@ -11,6 +11,8 @@ import promptWarWinner from '../assets/certificates/Prompt war winner.pdf';
 import mdKhajaEshaq from '../assets/certificates/MD.KHAJA ESHAQ.pdf';
 import mdKhajaEshaqInternship from '../assets/certificates/MD KHAJA ESHAQ Internship Certificate.pdf';
 import mdKhajaEshaqLoR from '../assets/certificates/MD KHAJA ESHAQ LoR.pdf';
+import openAiCert from '../assets/certificates/open ai.png';
+import outskillCert from '../assets/certificates/outskill.png';
 
 // ── Older certificates ────────────────────────────────────────────────────────
 import innoyudhCert from '../assets/Innoyudh .pdf';
@@ -29,6 +31,28 @@ import leetcodeAchievement from '../assets/leetcode achievement .pdf';
 // ─────────────────────────────────────────────────────────────────────────────
 const certificates = [
   // ── NEW ──
+  {
+    id: 22,
+    title: 'OpenAI Certificate',
+    issuer: 'OpenAI',
+    date: '2026',
+    filePath: openAiCert,
+    fileType: 'image',
+    description: 'Certificate awarded by OpenAI.',
+    category: 'courses',
+    isNew: true,
+  },
+  {
+    id: 21,
+    title: 'Outskill Certificate',
+    issuer: 'Outskill',
+    date: '2026',
+    filePath: outskillCert,
+    fileType: 'image',
+    description: 'Certificate awarded by Outskill.',
+    category: 'courses',
+    isNew: true,
+  },
   {
     id: 20,
     title: 'Full Stack Web Development Internship',

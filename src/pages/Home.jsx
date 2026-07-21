@@ -8,21 +8,23 @@ function Home() {
     <section className="min-h-[calc(100vh-8rem)] flex items-center">
       <div className="grid grid-cols-1 lg:grid-cols-[3fr,2fr] gap-10 lg:gap-16 items-center w-full">
         {/* Left: text & actions */}
-        <div className="space-y-6 reveal pl-4 lg:pl-12">
-          <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-[0.18em]">
-            CSE Student &amp; Web Developer
+        <div className="space-y-6 reveal pl-10 lg:pl-20 pt-10">
+          <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold uppercase tracking-[0.18em] badge-pulse">
+            Aspiring AI/ML Engineer
           </p>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[2.8]">
             Hi, I&apos;m <span className="text-primary">Md Khaja Eshaq</span> —
             <br />
-            building <span className="text-secondary">real-world</span> web apps.
+            building <span className="gradient-text-animate">intelligent AI solutions</span>
+            <br />
+            for real-world problems.
           </h1>
 
           <p className="text-base md:text-lg text-foreground/80 max-w-xl">
-            Motivated Computer Science and Engineering student with a strong passion for software
-            development, problem solving and turning ideas into working products that create real
-            impact.
+            Aspiring AI/ML Engineer with hands-on experience in Machine Learning, Deep Learning,
+            Computer Vision, and Generative AI. I enjoy building intelligent systems, training
+            neural networks, and deploying AI-powered applications that create real-world impact.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">

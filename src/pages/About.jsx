@@ -9,8 +9,8 @@ const sections = [
     title: 'About Me',
     icon: '👋',
     content: [
-      "I am Md Khaja Eshaq, a motivated Computer Science and Engineering (CSE) student with a strong passion for software development, problem solving, and building real-world applications.",
-      'I enjoy learning new technologies and turning ideas into working products that create impact.',
+      "I am Md Khaja Eshaq, a Computer Science and Engineering student passionate about Artificial Intelligence, Machine Learning, Deep Learning, and Computer Vision. As a Media Cell Coordinator and NEC Member, I combine technical expertise with leadership and collaboration.",
+      "I enjoy building AI-powered applications, training machine learning models, solving algorithmic challenges, and deploying scalable software solutions. My goal is to leverage AI to solve real-world problems and continuously grow as an AI/ML Engineer.",
     ],
   },
 ];
@@ -33,18 +33,43 @@ const education = [
   },
 ];
 
-const skills = [
-  'C',
-  'Java',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Git and Git hub',
-  'Deployement Through vercel,render etc',
-  'Data cleaning and pre processing using pandas',
-  'Data Visualization using Matplotlib and Seaborn',
-  'Machine Learning Using Scikit-learn',
-  'Ai tools Like Antigravity,Cursor and Claude'
+const skillCategories = [
+  {
+    category: 'Programming Languages',
+    skills: ['Python', 'Java', 'C', 'JavaScript'],
+  },
+  {
+    category: 'AI & Machine Learning',
+    skills: [
+      'Machine Learning (Scikit-learn)',
+      'Deep Learning (PyTorch)',
+      'Computer Vision (OpenCV)',
+      'Generative AI (GANs, StyleGAN2)',
+      'Image Processing',
+      'Data Preprocessing & Feature Engineering',
+      'Model Training & Evaluation',
+    ],
+  },
+  {
+    category: 'Data Science',
+    skills: ['NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'Data Cleaning & Preprocessing', 'Data Visualization'],
+  },
+  {
+    category: 'Web Technologies',
+    skills: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Tailwind CSS'],
+  },
+  {
+    category: 'Developer Tools',
+    skills: ['Git', 'GitHub', 'VS Code', 'Google Colab', 'Jupyter Notebook', 'Kaggle'],
+  },
+  {
+    category: 'Deployment & Cloud',
+    skills: ['Streamlit', 'Vercel', 'Render', 'GitHub Pages'],
+  },
+  {
+    category: 'AI Productivity Tools',
+    skills: ['Cursor', 'Claude', 'ChatGPT', 'GitHub Copilot', 'Antigravity'],
+  },
 ];
 
 const achievements = [
@@ -143,31 +168,9 @@ function About() {
         <div className="mt-4 w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[2.2fr,2.3fr] gap-8 md:gap-10 lg:gap-14 items-start">
-        {/* Left: Photo slideshow + About text */}
+      <div className="grid grid-cols-1 lg:grid-cols-[2.3fr,2.2fr] gap-8 md:gap-10 lg:gap-14 items-start">
+        {/* Left: Education, skills, projects, achievements */}
         <div className="space-y-6 reveal">
-          {/* Auto slideshow replaces the old static image */}
-          <AutoSlideshow />
-
-          {sections.map(section => (
-            <div key={section.title} className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{section.icon}</span>
-                <h3 className="text-lg font-semibold">{section.title}</h3>
-              </div>
-              <div className="space-y-2">
-                {section.content.map(line => (
-                  <p key={line} className="text-sm md:text-base text-foreground/80 leading-relaxed">
-                    {line}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Right: Education, skills, problem solving, projects, achievements */}
-        <div className="space-y-6 reveal" style={{ transitionDelay: '150ms' }}>
           {/* Educational Journey */}
           <div className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10">
             <h3 className="text-lg font-semibold flex items-center gap-2 mb-3">
@@ -186,65 +189,54 @@ function About() {
             </div>
           </div>
 
-          {/* Technical skills & problem solving */}
+          {/* Technical skills */}
           <div className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-secondary/10 space-y-4">
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <span>💻</span> Technical Skills
             </h3>
             <p className="text-sm text-foreground/75">
-              I work with a mix of programming languages, frontend technologies and modern developer tools.
+              I work with modern AI technologies, machine learning frameworks, programming languages, and software development tools to build intelligent, scalable applications.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {skills.map(skill => (
-                <span
-                  key={skill}
-                  className="px-3 py-1.5 rounded-full bg-primary/8 border border-primary/25 text-xs font-medium text-foreground/90"
-                >
-                  {skill}
-                </span>
+            <div className="space-y-3">
+              {skillCategories.map(({ category, skills }) => (
+                <div key={category}>
+                  <p className="text-xs font-semibold text-primary/80 uppercase tracking-wide mb-1.5">{category}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map(skill => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 rounded-full bg-primary/8 border border-primary/25 text-xs font-medium text-foreground/90"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
-
-            <div className="pt-3 border-t border-foreground/10 space-y-2">
-              <h4 className="text-sm font-semibold flex items-center gap-1">
-                <span>🧠</span> Problem Solving &amp; Coding
-              </h4>
-              <p className="text-sm text-foreground/75">
-                I am strong in Data Structures and Algorithms and actively practice problem solving on LeetCode and
-                CodeChef. I focus on writing clean, optimized and efficient code and enjoy tackling challenging logical
-                problems.
-              </p>
-            </div>
           </div>
+        </div>
 
-          {/* Projects & achievements */}
-          <div className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10 space-y-4">
-            <h3 className="text-lg font-semibold flex items-center gap-2">
-              <span>🚀</span> Projects &amp; Achievements
-            </h3>
-            <div className="space-y-3 text-sm text-foreground/80">
-              <div>
-                <p className="font-semibold text-foreground flex items-center gap-2">
-                  <span>🩸 Blood Connect – AI-Based Blood Bank System</span>
-                </p>
-                <p className="text-foreground/75 mt-1">
-                  A web-based platform to manage blood availability efficiently with user, hospital, blood bank and
-                  emergency modules. It also includes AI-based prediction to estimate future blood demand and possible
-                  disease outbreaks.
-                </p>
+        {/* Right: Photo slideshow + About text */}
+        <div className="space-y-6 reveal" style={{ transitionDelay: '150ms' }}>
+          {/* Auto slideshow */}
+          <AutoSlideshow />
+
+          {sections.map(section => (
+            <div key={section.title} className="bg-card rounded-3xl p-4 md:p-6 shadow-lg border border-primary/10">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl">{section.icon}</span>
+                <h3 className="text-lg font-semibold">{section.title}</h3>
               </div>
-              <div>
-                <p className="font-semibold flex items-center gap-2">
-                  <span>🏆 Achievements</span>
-                </p>
-                <ul className="list-disc list-inside mt-1 space-y-1 text-foreground/75">
-                  {achievements.map(item => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+              <div className="space-y-2">
+                {section.content.map(line => (
+                  <p key={line} className="text-sm md:text-base text-foreground/80 leading-relaxed">
+                    {line}
+                  </p>
+                ))}
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
