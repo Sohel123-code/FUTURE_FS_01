@@ -1,38 +1,107 @@
-import React from 'react';
-import gmailImg from '../assets/gmail.png';
-import callImg from '../assets/call.png';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { PageHeading } from "../components/Shared.jsx";
+import Icon from "../components/Icon.jsx";
+import Reveal from "../components/Reveal.jsx";
+import gmailImg from "../assets/gmail.png";
+import callImg from "../assets/call.png";
 
-function Contact() {
+export default function Contact() {
+  const [copyStatus, setCopyStatus] = useState("");
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText("mdsohel46940@gmail.com");
+      setCopyStatus("Email copied!");
+    } catch {
+      setCopyStatus("Please select and copy the email address above.");
+    }
+  }
   return (
-    <section className="py-24">
-      <div className="text-center mb-16 reveal">
-        <h2 className="text-4xl font-bold">Contact Info</h2>
-        <p className="text-lg text-foreground/70 mt-2">Reach out to me directly.</p>
-        <div className="mt-4 w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+    <div className="container interior-page contact-page">
+      <PageHeading
+        eyebrow="SAY HELLO. SHARE AN IDEA."
+        title="Something on"
+        accent="your mind?"
+        description="An interesting project, a collaboration, or just a good conversation — I’d love to hear from you."
+      />
+      <div className="contact-layout">
+        <Reveal className="contact-card">
+          <p className="eyebrow">LET’S START A CONVERSATION</p>
+          <div className="contact-method">
+            <span className="contact-method-icon">
+              <img src={gmailImg} alt="" />
+            </span>
+            <div>
+              <span>DROP ME A LINE</span>
+              <a href="mailto:mdsohel46940@gmail.com">mdsohel46940@gmail.com</a>
+            </div>
+            <a
+              className="icon-button"
+              href="mailto:mdsohel46940@gmail.com"
+              aria-label="Write an email"
+            >
+              <Icon name="arrow" />
+            </a>
+          </div>
+          <div className="contact-method">
+            <span className="contact-method-icon">
+              <img src={callImg} alt="" />
+            </span>
+            <div>
+              <span>LET’S TALK</span>
+              <a href="tel:+917396987687">+91 73969 87687</a>
+            </div>
+            <a
+              className="icon-button"
+              href="tel:+917396987687"
+              aria-label="Call Eshaq"
+            >
+              <Icon name="arrow" />
+            </a>
+          </div>
+          <div className="contact-card-bottom">
+            <button className="text-link" onClick={copyEmail}>
+              <Icon
+                name={copyStatus === "Email copied!" ? "check" : "copy"}
+                size={17}
+              />
+              {copyStatus === "Email copied!"
+                ? "Email copied!"
+                : "Copy email address"}
+            </button>
+            <span>
+              <Icon name="pin" size={15} /> Visakhapatnam, India
+            </span>
+          </div>
+          <p className="copy-status" role="status">
+            {copyStatus}
+          </p>
+        </Reveal>
+        <Reveal className="contact-note" delay={120}>
+          <span className="contact-note-star" aria-hidden="true">
+            ✳
+          </span>
+          <p>
+            Every great project
+            <br />
+            starts with a simple
+          </p>
+          <strong>“hello.”</strong>
+          <span>Let’s see where it takes us.</span>
+          <Link to="/connect" className="text-link">
+            Find me elsewhere <Icon name="arrow" />
+          </Link>
+        </Reveal>
       </div>
-      <div className="max-w-xl mx-auto grid gap-6 reveal">
-        {/* Email */}
-        <div className="flex items-center gap-4 bg-card p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
-          <img src={gmailImg} alt="Gmail" className="w-8 h-8" />
-          <a
-            href="mailto:mdsohel46940@gmail.com"
-            className="text-primary font-medium hover:underline break-all"
-          >
-            mdsohel46940@gmail.com
-          </a>
-        </div>
-        {/* Phone */}
-        <div className="flex items-center gap-4 bg-card p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
-          <img src={callImg} alt="Phone" className="w-8 h-8" />
-          <a href="tel:7396987687" className="text-primary font-medium hover:underline break-all">
-            +91 7396987687
-          </a>
+      <div className="contact-interests">
+        <span>ALWAYS HAPPY TO TALK ABOUT</span>
+        <div className="tags">
+          <span>AI & Machine Learning</span>
+          <span>Creative ideas</span>
+          <span>Hackathons</span>
+          <span>Collaboration</span>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
-
-export default Contact;
-
-
