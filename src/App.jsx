@@ -9,8 +9,10 @@ import Contact from "./pages/Contact.jsx";
 import SEOHead from "./components/SEOHead.jsx";
 import Icon from "./components/Icon.jsx";
 import PageTransition from "./components/PageTransition.jsx";
+import { getPageMotion } from "./data/pageMotion.js";
 import "./styles.css";
 import "./responsive.css";
+import "./motion.css";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -182,7 +184,11 @@ export default function App() {
         />
       )}
       <main id="main-content" tabIndex={-1}>
-        <div key={pathname} className="page-enter page-arriving">
+        <div
+          key={pathname}
+          className="page-enter page-arriving"
+          data-page={getPageMotion(pathname).kind}
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

@@ -1332,7 +1332,7 @@ p {
   display: grid;
   place-items: center;
 }
-.gallery-controls button::after {
+.gallery-dots button::after {
   content: "";
   width: 6px;
   height: 6px;
@@ -1342,7 +1342,7 @@ p {
     width 0.3s,
     background 0.3s;
 }
-.gallery-controls button.active::after {
+.gallery-dots button.active::after {
   width: 17px;
   background: var(--forest);
 }

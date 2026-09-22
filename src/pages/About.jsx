@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   sections,
   education,
@@ -16,6 +16,12 @@ import Reveal from "../components/Reveal.jsx";
 
 export default function About() {
   const [activePhoto, setActivePhoto] = useState(0);
+  const gesture = useRef(null);
+  const changePhoto = (direction) =>
+    setActivePhoto(
+      (index) =>
+        (index + direction + galleryPhotos.length) % galleryPhotos.length,
+    );
   return (
     <div className="container interior-page">
       <PageHeading
@@ -44,7 +50,34 @@ export default function About() {
           </div>
         </Reveal>
         <Reveal className="gallery" delay={100}>
-          <div className="gallery-stage">
+          <div
+            className="gallery-stage"
+            tabIndex={0}
+            role="group"
+            aria-label="Photo gallery. Swipe left or right, or use the arrow keys, to change photos."
+            onKeyDown={(event) => {
+              if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                event.preventDefault();
+                changePhoto(event.key === "ArrowLeft" ? -1 : 1);
+              }
+            }}
+            onPointerDown={(event) => {
+              if (event.pointerType === "mouse") return;
+              gesture.current = { x: event.clientX, y: event.clientY };
+              event.currentTarget.setPointerCapture(event.pointerId);
+            }}
+            onPointerUp={(event) => {
+              if (!gesture.current) return;
+              const dx = event.clientX - gesture.current.x;
+              const dy = event.clientY - gesture.current.y;
+              if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3)
+                changePhoto(dx < 0 ? 1 : -1);
+              gesture.current = null;
+            }}
+            onPointerCancel={() => {
+              gesture.current = null;
+            }}
+          >
             {galleryPhotos.map((photo, index) => (
               <img
                 key={photo.src}
@@ -68,7 +101,23 @@ export default function About() {
           </div>
           <div className="gallery-controls">
             <span>Little moments. Big memories.</span>
-            <div>
+            <div className="gallery-arrows">
+              <button
+                className="icon-button gallery-previous"
+                onClick={() => changePhoto(-1)}
+                aria-label="Previous photo"
+              >
+                <Icon name="right" />
+              </button>
+              <button
+                className="icon-button"
+                onClick={() => changePhoto(1)}
+                aria-label="Next photo"
+              >
+                <Icon name="right" />
+              </button>
+            </div>
+            <div className="gallery-dots">
               {galleryPhotos.map((photo, index) => (
                 <button
                   key={photo.src}
